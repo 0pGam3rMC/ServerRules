@@ -26,6 +26,13 @@ use pocketmine\utils\TextFormat;
 
 class ServerRules extends PluginBase{
   
+  public function onEnable() : void{
+    if(!is_dir($this->getDataFolder())){
+      @mkdir($this->getDataFolder());
+    }
+    $this->saveDefaultConfig();
+  }
+  
   /**
    * @param CommandSender $sender
    * @param Command $cmd
